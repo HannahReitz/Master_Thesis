@@ -1,0 +1,16 @@
+DATA: C:/Users/.../blimp_mig_m.csv;
+VARIABLES: ID_t ID_cc math cog sat ses edu female age attedu miggen lang school percmig meanses meancog;
+ORDINAL: attedu edu female lang;
+NOMINAL: school miggen;
+MISSING: 999999;
+CLUSTERID: ID_cc;
+MODEL: math ~ cog sat ses edu female age attedu miggen lang school percmig meanses meancog ses*percmig;
+SEED: 90291;
+CHAINS: 4 processors 4;
+BURN: 85000;
+THIN: 2000;
+NIMPS: 20;
+OPTIONS: psr;
+SAVE: stacked0 = imps_mig_m.csv;
+
+

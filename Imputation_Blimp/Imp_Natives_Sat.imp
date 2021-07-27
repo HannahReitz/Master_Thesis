@@ -1,0 +1,17 @@
+DATA: C:/Users/.../blimp_nat_s.csv;
+VARIABLES: ID_t ID_cc sat cog ses edu female age attedu school percmig meanses meancog;
+ORDINAL: attedu edu female;
+NOMINAL: school;
+MISSING: 999999;
+CLUSTERID: ID_cc;
+MODEL: sat ~ cog ses edu female age attedu school percmig meanses meancog;
+SEED: 90291;
+CHAINS: 4 processors 4;
+BURN: 150000;
+THIN: 2000;
+NIMPS: 20;
+OPTIONS: psr;
+SAVE: stacked0 = imps_nat_s.csv;
+
+
+
